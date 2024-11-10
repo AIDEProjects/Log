@@ -1,0 +1,16 @@
+apply plugin: 'java'
+
+dependencies {
+	compile fileTree(dir: 'libs', include: ['*.jar'])
+	// runtime目录
+	// 用于放置打包jar根目录classes{N}.dex文件
+	// 也支持资源文件
+	runtimeOnly fileTree(dir: 'runtime', include: ['*.jar'])
+	// 仅编译
+	compileOnly fileTree(dir: 'provider', include: ['.jar'])
+	
+	// 可以正常使用 api compileOnly等
+	
+	// kotlin库如果类冲突，取消下一行注释
+	// api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.0.0"
+}
